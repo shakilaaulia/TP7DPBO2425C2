@@ -34,28 +34,34 @@ Database bernama "toko_roti", dalam database ini terdapat 3 tabel utama yaitu:
 
 ## Penjelasan Struktur File
 1. config/db.php
+   
 Berisi koneksi ke database menggunakan PDO. Semua kelas lain (Produk, Pelanggan, Pesanan) mewarisi koneksi ini agar query database bisa dijalankan.
-2. class/Produk.php
+3. class/Produk.php
+
 Menangani semua proses CRUD produk:
 - getAllProduk() = ambil semua data produk
 - addProduk() = tambah produk baru
 - updateProduk() = ubah data produk
 - deleteProduk() = hapus produk
 3. class/Pelanggan.php
+  
 Berfungsi untuk mengelola data pelanggan:
 - Tambah, ubah, hapus pelanggan (sama seperti produk)
 - Menampilkan daftar pelanggan
 4. class/Pesanan.php
+  
 Kelas paling penting, mengelola transaksi pesanan:
 - addPesanan() = menambah pesanan baru -> stok produk otomatis berkurang
 - updatePesanan() = mengubah pesanan -> stok lama dikembalikan, stok baru dikurangi
 - deletePesanan() = menghapus pesanan -> stok dikembalikan ke produk semula
 - getAllPesanan()  menampilkan daftar pesanan beserta nama pelanggan & produk
 5. index.php
+  
 File utama yang mengatur tampilan halaman menggunakan templating system:
 - header.php & footer.php selalu dipanggil di setiap halaman
 - Navigasi menggunakan ?page= untuk berpindah antara Produk, Pelanggan, dan Pesanan
 6. view/ Folder
+  
 Menampilkan data dalam bentuk tabel dan form input:
 - produk.php → daftar dan form CRUD produk
 - pelanggan.php → daftar pelanggan dan form CRUP Pelanggan
@@ -102,12 +108,15 @@ Semua proses dilakukan dalam satu transaksi database untuk mencegah error data (
 
 ## Dokumentasi
 Page Produk
+
 ![produk](https://github.com/user-attachments/assets/0816dbb8-c517-4f9e-b310-a75f15f2589c)
 
 Page Pelanggan
+
 ![pelanggan](https://github.com/user-attachments/assets/7be301ca-61d8-4f6f-88b1-4bb990427530)
 
 Page Pesanan
+
 ![pesanan](https://github.com/user-attachments/assets/2951b1d7-194c-4a54-b2f4-ad6acca8d897)
 
 
